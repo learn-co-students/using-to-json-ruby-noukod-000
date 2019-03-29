@@ -26,10 +26,15 @@ class PostsController < ApplicationController
     redirect_to post_path(@post)
   end
 
+  # def post_data
+  #   post = Post.find(params[:id])
+  #   render json: PostSerializer.serialize(post)
+  # end
+
   def post_data
-    post = Post.find(params[:id])
-    render json: PostSerializer.serialize(post)
-  end
+      post = Post.find(params[:id])
+      render json: post.to_json(include: :author)
+    end
 
 private
   # Use callbacks to share common setup or constraints between actions.
