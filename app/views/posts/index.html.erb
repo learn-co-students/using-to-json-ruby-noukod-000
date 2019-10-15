@@ -8,8 +8,11 @@ $(function () {
     var id = $(this).data("id");
     $.get("/posts/" + id + "/post_data", function(data) {
       // Replace text of body-id div
+      let myData = data["created_at"]
       $("#body-" + id).html(data["description"]);
+      // $("#body-" + id).html(myData)
     });
   });
 });
 </script>
+<h1></h1>
